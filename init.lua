@@ -339,13 +339,29 @@ vim.keymap.set('n', "<C-h>", "<C-w>h", { noremap = true, silent = true})
 vim.keymap.set('n', "<C-j>", "<C-w>j", { noremap = true, silent = true})
 vim.keymap.set('n', "<C-k>", "<C-w>k", { noremap = true, silent = true})
 vim.keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true})
-
+-- Resize with arrows
+vim.keymap.set('n', "<C-Up>", ":resize -2<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-Down>", ":resize +2<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-Left>", ":vertical resize +2<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-Right>", ":vertical resize -2<CR>", { noremap = true, silent = true})
+-- Navigate buffers
+vim.keymap.set('n', "<S-l>", ":bnext<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', "<S-h>", ":bprevious<CR>", { noremap = true, silent = true})
+-- Move text up and down
+vim.keymap.set('n', "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true})
+vim.keymap.set('n', "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true})
+-- Toggle File Tree
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<cr>", { noremap = true, silent = true})
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Insert --
+vim.keymap.set('i', "jk", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set('i', "kj", "<ESC>", { noremap = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -444,8 +460,11 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
-
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    -- Install parsers synchronously
+    sync_install = false,
+    ignore_install = {'tsx'},
+    modules = {''},
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
