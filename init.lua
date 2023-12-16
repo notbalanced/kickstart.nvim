@@ -32,10 +32,6 @@ These are for you, the reader to help understand what is happening. Feel free to
 them once you know what you're doing, but they should serve as a guide for when you
 are first encountering a few different constructs in your nvim config.
 
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now :)
 --]]
 
 -- Set <space> as the leader key
@@ -206,12 +202,30 @@ require('lazy').setup({
       options = {
         icons_enabled = false,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+		    component_separators = { left = "", right = "" },
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = { "neo-tree", "dashboard", "alpha" },
+        always_divide_middle = true,
       },
+      sections = {
+		    lualine_a = { 'mode' },
+		    lualine_b = { 'branch', 'diff', 'diagnostics' },
+		    lualine_c = {'filename'},
+		    -- lualine_x = { "encoding", "fileformat", "filetype" },
+		    lualine_x = { "encoding", 'fileformat', 'filetype' },
+		    lualine_y = { 'progress' },
+		    lualine_z = { 'location' },
+      },
+	    inactive_sections = {
+		    lualine_a = {},
+		    lualine_b = {},
+		    lualine_c = { "filename" },
+		    lualine_x = { "location" },
+		    lualine_y = {},
+		    lualine_z = {},
+	    },
     },
   },
-
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -266,7 +280,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -320,10 +334,17 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Better window Navigation
+vim.keymap.set('n', "<C-h>", "<C-w>h", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-j>", "<C-w>j", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-k>", "<C-w>k", { noremap = true, silent = true})
+vim.keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true})
+
+vim.keymap.set('n', '<leader>e', ":Neotree<cr>", { noremap = true, silent = true})
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Highlight on yank ]]
