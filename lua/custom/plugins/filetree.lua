@@ -2,14 +2,31 @@
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 return {
-  "nvim-neo-tree/neo-tree.nvim",
+  "nvim-tree/nvim-tree.lua",
   version = "*",
   dependencies = {
-    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
   },
   config = function ()
-    require('neo-tree').setup {}
+    require('nvim-tree').setup {
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
+      renderer = {
+        root_folder_modifier = ":t",
+      },
+      view = {
+        width = 30,
+        side = "left",
+--         mappings = {
+--           list = {
+--             { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+--             { key = "h", cb = tree_cb "close_node" },
+--             { key = "v", cb = tree_cb "vsplit" },
+--           },
+--         },
+      },
+    }
   end,
 }

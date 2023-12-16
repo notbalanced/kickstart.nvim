@@ -340,7 +340,7 @@ vim.keymap.set('n', "<C-j>", "<C-w>j", { noremap = true, silent = true})
 vim.keymap.set('n', "<C-k>", "<C-w>k", { noremap = true, silent = true})
 vim.keymap.set('n', "<C-l>", "<C-w>l", { noremap = true, silent = true})
 
-vim.keymap.set('n', '<leader>e', ":Neotree<cr>", { noremap = true, silent = true})
+vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<cr>", { noremap = true, silent = true})
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
