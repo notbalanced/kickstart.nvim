@@ -370,6 +370,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('i', "jk", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set('i', "kj", "<ESC>", { noremap = true, silent = true })
 
+-- Terminal --
+vim.keymap.set('t', '<ESC>', [[<c-\><c-n>]], { noremap = true })
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
