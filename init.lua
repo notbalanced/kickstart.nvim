@@ -289,6 +289,7 @@ require('lazy').setup({
 
 -- Set highlight on search
 vim.o.hlsearch = false
+vim.o.incsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
@@ -300,9 +301,8 @@ vim.o.mouse = 'a'
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent = true   -- Enable break indent
+vim.o.linebreak = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -310,6 +310,13 @@ vim.o.undofile = true
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.cursorline = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
