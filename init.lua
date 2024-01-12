@@ -215,6 +215,7 @@ require('lazy').setup({
 		    -- lualine_x = { "encoding", "fileformat", "filetype" },
 		    lualine_x = { "encoding", 'fileformat', 'filetype' },
 		    lualine_y = { 'progress' },
+
 		    lualine_z = { 'location' },
       },
 	    inactive_sections = {
@@ -225,6 +226,42 @@ require('lazy').setup({
 		    lualine_y = {},
 		    lualine_z = {},
 	    },
+    },
+  },
+  {
+    -- Set bufferline for top line
+    'akinsho/bufferline.nvim',
+    opts = {
+      options = {
+        numbers = "none", -- |"ordinal"|"buffer_id"|"both"|"function({{ordinal, id, lower, raise}):string,
+        close_command = "bdelete! %d",
+        right_mouse_command = "bdelete! %d",
+        left_mouse_command = "buffer %d",
+        middle_mouse_command = nil,
+      indicator = {
+        icon = '▎', -- this should be omitted if indicator style is not 'icon'
+        style = 'icon', -- | 'underline' | 'none',
+      },
+      buffer_close_icon = '',
+      modified_icon = '●',
+      close_icon = '',
+      left_trunc_marker = '',
+      right_trunc_marker = '',
+      max_name_length = 30,
+      max_prefix_length = 30,
+      tab_size = 21,
+      diagnostics = false,
+      diagnostics_update_in_insert = false,
+      offsets = { { filetype = "NvimTree", text = "", padding = 1 }},
+      show_buffer_icons = true,
+      show_buffer_close_icons = true,
+      show_close_icon = true,
+      show_tab_indicators = true,
+      persist_buffer_sort = true,
+      separator_style = "thin", -- | "thick" 
+      enforce_regular_tabs = true,
+      always_show_bufferline = true,
+      },
     },
   },
   {
