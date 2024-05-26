@@ -125,13 +125,13 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.expandtab = true
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.cursorline = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.cursorline = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -265,8 +265,8 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 
   -- Git related plugins
-  --  'tpope/vim-fugitive',
-  --  'tpope/vim-rhubarb',
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
