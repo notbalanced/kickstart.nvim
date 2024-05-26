@@ -165,8 +165,8 @@ vim.opt.scrolloff = 10
 vim.opt.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
-vim.oopt.termguicolors = true
-vim.opt.guifont = "CaskaydiaCove Nerd Font Mono:h12"
+vim.opt.termguicolors = true
+vim.opt.guifont = 'CaskaydiaCove Nerd Font Mono:h12'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -181,28 +181,28 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Resize with arrows
-vim.keymap.set('n', "<C-Up>", ":resize -2<CR>", { noremap = true, silent = true})
-vim.keymap.set('n', "<C-Down>", ":resize +2<CR>", { noremap = true, silent = true})
-vim.keymap.set('n', "<C-Left>", ":vertical resize +2<CR>", { noremap = true, silent = true})
-vim.keymap.set('n', "<C-Right>", ":vertical resize -2<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Left>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Right>', ':vertical resize -2<CR>', { noremap = true, silent = true })
 -- Navigate buffers
-vim.keymap.set('n', "<S-l>", ":bnext<CR>", { noremap = true, silent = true})
-vim.keymap.set('n', "<S-h>", ":bprevious<CR>", { noremap = true, silent = true})
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true, silent = true })
 -- Move text up and down
-vim.keymap.set('n', "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true})
-vim.keymap.set('n', "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true})
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
 -- Toggle File Tree
-vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<cr>", { noremap = true, silent = true})
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Insert --
-vim.keymap.set('i', "jk", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set('i', "kj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set('i', 'jk', '<ESC>', { noremap = true, silent = true })
+vim.keymap.set('i', 'kj', '<ESC>', { noremap = true, silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -265,8 +265,8 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 
   -- Git related plugins
---  'tpope/vim-fugitive',
---  'tpope/vim-rhubarb',
+  --  'tpope/vim-fugitive',
+  --  'tpope/vim-rhubarb',
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -354,29 +354,29 @@ require('lazy').setup({
       options = {
         icons_enabled = false,
         theme = 'onedark',
-		    component_separators = { left = "", right = "" },
+        component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
-        disabled_filetypes = { "neo-tree", "dashboard", "alpha" },
+        disabled_filetypes = { 'neo-tree', 'dashboard', 'alpha' },
         always_divide_middle = true,
       },
       sections = {
-		    lualine_a = { 'mode' },
-		    lualine_b = { 'branch', 'diff', 'diagnostics' },
-		    lualine_c = {'filename'},
-		    -- lualine_x = { "encoding", "fileformat", "filetype" },
-		    lualine_x = { "encoding", 'fileformat', 'filetype' },
-		    lualine_y = { 'progress' },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        -- lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
 
-		    lualine_z = { 'location' },
+        lualine_z = { 'location' },
       },
-	    inactive_sections = {
-		    lualine_a = {},
-		    lualine_b = {},
-		    lualine_c = { "filename" },
-		    lualine_x = { "location" },
-		    lualine_y = {},
-		    lualine_z = {},
-	    },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {},
+      },
     },
   },
   {
@@ -384,34 +384,34 @@ require('lazy').setup({
     'akinsho/bufferline.nvim',
     opts = {
       options = {
-        numbers = "none", -- |"ordinal"|"buffer_id"|"both"|"function({{ordinal, id, lower, raise}):string,
-        close_command = "bdelete! %d",
-        right_mouse_command = "bdelete! %d",
-        left_mouse_command = "buffer %d",
+        numbers = 'none', -- |"ordinal"|"buffer_id"|"both"|"function({{ordinal, id, lower, raise}):string,
+        close_command = 'bdelete! %d',
+        right_mouse_command = 'bdelete! %d',
+        left_mouse_command = 'buffer %d',
         middle_mouse_command = nil,
-      indicator = {
-        icon = '▎', -- this should be omitted if indicator style is not 'icon'
-        style = 'icon', -- | 'underline' | 'none',
-      },
-      buffer_close_icon = '',
-      modified_icon = '●',
-      close_icon = '',
-      left_trunc_marker = '',
-      right_trunc_marker = '',
-      max_name_length = 30,
-      max_prefix_length = 30,
-      tab_size = 21,
-      diagnostics = false,
-      diagnostics_update_in_insert = false,
-      offsets = { { filetype = "NvimTree", text = "", padding = 1 }},
-      show_buffer_icons = true,
-      show_buffer_close_icons = true,
-      show_close_icon = true,
-      show_tab_indicators = true,
-      persist_buffer_sort = true,
-      separator_style = "thin", -- | "thick" 
-      enforce_regular_tabs = true,
-      always_show_bufferline = true,
+        indicator = {
+          icon = '▎', -- this should be omitted if indicator style is not 'icon'
+          style = 'icon', -- | 'underline' | 'none',
+        },
+        buffer_close_icon = '',
+        modified_icon = '●',
+        close_icon = '',
+        left_trunc_marker = '',
+        right_trunc_marker = '',
+        max_name_length = 30,
+        max_prefix_length = 30,
+        tab_size = 21,
+        diagnostics = false,
+        diagnostics_update_in_insert = false,
+        offsets = { { filetype = 'NvimTree', text = '', padding = 1 } },
+        show_buffer_icons = true,
+        show_buffer_close_icons = true,
+        show_close_icon = true,
+        show_tab_indicators = true,
+        persist_buffer_sort = true,
+        separator_style = 'thin', -- | "thick"
+        enforce_regular_tabs = true,
+        always_show_bufferline = true,
       },
     },
   },
@@ -999,7 +999,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.filetree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
