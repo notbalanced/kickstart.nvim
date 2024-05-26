@@ -104,8 +104,8 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
--- Enable mouse mode
--- vim.o.mouse = 'a'
+-- Enable mouse mode, can be useful for resizing splits for example!
+-- vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -210,7 +210,7 @@ vim.keymap.set('i', 'kj', '<ESC>', { noremap = true, silent = true })
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<ESC>', [[<c-\><c-n>]], { noremap = true })
+vim.keymap.set('t', '<ESC>', [[<c-\><c-n>]], { noremap = true, desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -270,7 +270,8 @@ require('lazy').setup({
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  'notbalanced/todo.txt-vim',
+  'notbalanced/todo.txt-vim', -- Todo.txt support
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
