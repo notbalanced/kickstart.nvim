@@ -1,3 +1,4 @@
-require 'settings'
-require 'keymaps'
-require 'plugins'
+-- Load Core modules
+require('settings')
+require('keymaps')
+require('plugins')
