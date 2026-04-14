@@ -2,12 +2,18 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Set to true if you have a nerd font installed and selected in the terminal
+vim.g.have_nerd_font = true
+
 -- UI
-vim.opt.number = true
+vim.opt.number = true           -- Make line numbers default
+--vim.opt.relativenumber = true   -- Relative line numbers
+vim.opt.mouse = 'nv'            -- Set mode for mouse
 vim.opt.showmode = false
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
+vim.opt.guifont = 'CaskaydiaCove NF:h12'
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
