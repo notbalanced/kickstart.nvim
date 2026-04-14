@@ -13,7 +13,14 @@ vim.opt.showmode = false
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
-vim.opt.guifont = 'CaskaydiaCove NF:h12'
+-- Set guifont
+if vim.fn.has("win32") == 1 then
+    -- Windows specific font
+    vim.opt.guifont = 'CaskaydiaCove NF:h10'
+else
+    -- Linux font
+    vim.opt.guifont = 'CaskaydiaCove Nerd Font Mono:h12'
+end
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
