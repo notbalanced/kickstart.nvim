@@ -25,6 +25,7 @@ end
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
+vim.opt.autocomplete = true
 -- Indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true
