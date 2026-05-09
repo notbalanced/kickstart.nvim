@@ -46,7 +46,7 @@ vim.opt.incsearch = false
 
 -- Timing
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 1500
 
 -- Splits
 vim.opt.splitright = true
