@@ -61,39 +61,39 @@ map("n", "<leader>q", vim.diagnostic.setloclist)
 -- Telescope
 --------------------------------------------------
 
-map("n", "<leader>sh", function() require("telescope.builtin").help_tags() end)
-map("n", "<leader>sk", function() require("telescope.builtin").keymaps() end)
-map("n", "<leader>sf", function() require("telescope.builtin").find_files() end)
-map("n", "<leader>ss", function() require("telescope.builtin").builtin() end)
-map("n", "<leader>sw", function() require("telescope.builtin").grep_string() end)
-map("n", "<leader>sg", function() require("telescope.builtin").live_grep() end)
-map("n", "<leader>sd", function() require("telescope.builtin").diagnostics() end)
-map("n", "<leader>sr", function() require("telescope.builtin").resume() end)
-map("n", "<leader>s.", function() require("telescope.builtin").oldfiles() end)
-map("n", "<leader><leader>", function() require("telescope.builtin").buffers() end)
+map("n", "<leader>sh", function() require("telescope.builtin").help_tags() end, {desc="Search Help"})
+map("n", "<leader>sk", function() require("telescope.builtin").keymaps() end, {desc="Search Keymaps"})
+map("n", "<leader>sf", function() require("telescope.builtin").find_files() end, {desc="Search Files"})
+map("n", "<leader>ss", function() require("telescope.builtin").builtin() end, {desc="Search Select Telescope"})
+map("n", "<leader>sw", function() require("telescope.builtin").grep_string() end, {desc="Search Word"})
+map("n", "<leader>sg", function() require("telescope.builtin").live_grep() end, {desc="Search Grep"})
+map("n", "<leader>sd", function() require("telescope.builtin").diagnostics() end, {desc="Search Diagnostics"})
+map("n", "<leader>sr", function() require("telescope.builtin").resume() end, {desc="Search Resume"})
+map("n", "<leader>s.", function() require("telescope.builtin").oldfiles() end, {desc="Search Recent Files"})
+map("n", "<leader><leader>", function() require("telescope.builtin").buffers() end, {desc="Find Buffers"})
 
 map("n", "<leader>/", function()
   require("telescope.builtin").current_buffer_fuzzy_find({
     winblend = 10,
     previewer = false,
   })
-end)
+end, {desc="Search Open Files"})
 
 map("n", "<leader>s/", function()
   require("telescope.builtin").live_grep({
     grep_open_files = true,
     prompt_title = "Live Grep in Open Files",
   })
-end)
+end, {desc="Search Open Files"})
 
 map("n", "<leader>sn", function()
   require("telescope.builtin").find_files({
     cwd = vim.fn.stdpath("config"),
   })
-end)
+end, {desc="Search Nvim config"})
 
 -----------------------------------------
 ---File Explorer
 -----------------------------------------
-map("n", "<leader>e", "<cmd>Oil<CR>")
+map("n", "<leader>e", "<cmd>Oil<CR>", {desc="Open File Explorer"})
 
