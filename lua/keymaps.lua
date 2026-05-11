@@ -92,6 +92,21 @@ map("n", "<leader>sn", function()
   })
 end, {desc="Search Nvim config"})
 
+
+-----------------------------------------
+---LSP Keymap
+-----------------------------------------
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local map = vim.keymap.set
+    local buf = ev.buf
+    map("n", "gd", vim.lsp.buf.definition,   { buffer = buf, desc = "Go to Definition" })
+    map("n", "gr", vim.lsp.buf.references,   { buffer = buf, desc = "Find References" })
+    map("n", "K",  vim.lsp.buf.hover,        { buffer = buf, desc = "Hover Docs" })
+    map("n", "<leader>rn", vim.lsp.buf.rename,       { buffer = buf, desc = "Rename" })
+    map("n", "<leader>ca", vim.lsp.buf.code_action,  { buffer = buf, desc = "Code Action" })
+  end,
+})
 -----------------------------------------
 ---File Explorer
 -----------------------------------------

@@ -1,6 +1,6 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone",
     "https://github.com/folke/lazy.nvim.git",
@@ -99,5 +99,22 @@ require("lazy").setup({
           })
       end,
   },
+  {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = function()
+          require("nvim-treesitter.config").setup({
+              ensure_installed = {  "lua",
+                                    "yaml",
+                                    "markdown",
+                                    "markdown_inline",
+                                    "bash",
+                                    "toml"
+                                },
+            highlight = {enable = true },
+            })
+        end,
+    },
+
 })
 

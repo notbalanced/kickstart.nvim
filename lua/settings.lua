@@ -21,11 +21,12 @@ else
     -- Linux font
     vim.opt.guifont = 'CaskaydiaCove Nerd Font Mono:h12'
 end
-
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.autocomplete = false
+vim.opt.autocomplete = true
+vim.opt.autocompletedelay = 200
+
 -- Indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -35,8 +36,19 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Wrapping
+vim.opt.wrap = true         -- wrap lines by default
 vim.opt.breakindent = true
 vim.opt.linebreak = true
+
+-- Don't line wrap for following file types
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cpp", "c", "h", "tpp", "cmake", "make", "py", "lua" },
+    callback = function()
+        vim.opt_local.wrap = false
+        vim.opt_local.linebreak = false
+        vim.opt_local.breakindent = false
+    end,
+})
 
 -- Search
 vim.opt.ignorecase = true
@@ -46,7 +58,7 @@ vim.opt.incsearch = false
 
 -- Timing
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 1500
+vim.opt.timeoutlen = 800
 
 -- Splits
 vim.opt.splitright = true
@@ -57,10 +69,11 @@ vim.opt.scrolloff = 10
 
 -- Whitespace chars
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣" }
 
 -- Undo
 vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 
 -- Live substitute preview
 vim.opt.inccommand = "split"
